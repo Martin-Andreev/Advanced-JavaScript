@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" type="text/css" href="Styles/styles.css">
+</head>
+<body>
+<div id="wrapper">
+    <header id="main-Header">
+        <p>To-Do List</p>
+    </header>
+    <main id="todo-list"></main>
+    <section id="add-section">
+        <input type="text" id="add-section-title" placeholder="Title..."/>
+        <input type="button" id="add-section-button" value="New Section" onclick="toDoModule.section.addToDom()"/>
+    </section>
+    <script src="Scripts/extends.js"></script>
+    <script src="Scripts/container.js"></script>
+    <script src="Scripts/section.js"></script>
+    <script src="Scripts/item.js"></script>
+</div>
+</body>
+</html>
