@@ -15,5 +15,12 @@ var toDoModule = toDoModule || {};
         }
     };
 
+    (function () {
+        var _addSectionButton = document.getElementById('add-section-button');
+        _addSectionButton.onclick = function () {
+            toDoModule.section.addToDom();
+        }
+    })();
+
     toDoModule.container = container;
 }(toDoModule));

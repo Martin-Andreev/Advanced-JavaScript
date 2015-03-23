@@ -100,6 +100,7 @@ input[type = "button"]:hover {
     vertical-align: top;
     padding: .9% 0;
     margin: -1% 0 0 1%;
+    transition: all .4s ease-in-out;
 }
 
 input[type='checkbox'] {
