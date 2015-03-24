@@ -17,9 +17,9 @@ var toDoModule = toDoModule || {};
 
     (function () {
         var _addSectionButton = document.getElementById('add-section-button');
-        _addSectionButton.onclick = function () {
+        _addSectionButton.addEventListener('click', function () {
             toDoModule.section.addToDom();
-        }
+        });
     })();
 
     toDoModule.container = container;

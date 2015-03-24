@@ -36,39 +36,40 @@ var toDoModule = toDoModule || {};
 
     function makeArticleBody(section) {
         var _newArticle = document.createElement('article');
-        _newArticle.className = 'section-main';
-        _newArticle.id = 'section' + (_sectionId) + '-main';
+        _newArticle.setAttribute('class', 'section-main');
+        _newArticle.setAttribute('id', 'section' + (_sectionId) + '-main');
         section.appendChild(_newArticle);
 
         var _header = document.createElement('header');
-        _header.className = 'section-header';
+        _header.setAttribute('class', 'section-header');
         _newArticle.appendChild(_header);
 
         var _title = document.createElement('h2');
-        _title.className = 'section-title';
+        _title.setAttribute('class', 'section-title');
         _title.innerText = toDoModule.section._html.sectionTitle;
         _header.appendChild(_title);
     }
 
     function makeArticleAddForm(section) {
         var _addForm = document.createElement('form');
-        _addForm.className = 'add-item-form';
+        _addForm.setAttribute('class', 'add-item-form');
         section.appendChild(_addForm);
 
         var _inputText = document.createElement('input');
-        _inputText.type = 'text';
-        _inputText.id = 'inputText' + (_sectionId);
-        _inputText.placeholder = 'Add item...';
+        _inputText.setAttribute('type', 'text');
+        _inputText.setAttribute('id', 'inputText' + (_sectionId));
+        _inputText.setAttribute('placeholder', 'Add item...');
         _addForm.appendChild(_inputText);
 
         var _addButton  = document.createElement('input');
-        _addButton.type = 'button';
+        _addButton.setAttribute('type', 'button');
+        _addButton.setAttribute('value', '+');
         _addButton.idNumber = _sectionId;
-        _addButton.value = '+';
-        _addForm.appendChild(_addButton);
-        _addButton.onclick = function () {
+        _addButton.addEventListener('click', function () {
             toDoModule.item.addToDom(_addButton.idNumber);
-        };
+        });
+        _addForm.appendChild(_addButton);
+
     }
 
     toDoModule.section = section;

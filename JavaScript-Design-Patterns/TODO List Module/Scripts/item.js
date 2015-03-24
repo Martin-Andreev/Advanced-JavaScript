@@ -16,8 +16,8 @@ var toDoModule = toDoModule || {};
             if (!_articleItemsList) {
                 var _articleParent = document.getElementById('section' + id + '-main');
                 _articleItemsList = document.createElement('ul');
-                _articleItemsList.className = 'section-body';
-                _articleItemsList.id = 'section-list' + id;
+                _articleItemsList.setAttribute('class', 'section-body');
+                _articleItemsList.setAttribute('id', 'section-list' + id);
                 _articleParent.appendChild(_articleItemsList);
             }
 
@@ -33,35 +33,34 @@ var toDoModule = toDoModule || {};
         listItemParent.appendChild(_listItem);
 
         var _checkBox = document.createElement('input');
-        _checkBox.type = 'checkbox';
-        _checkBox.id = 'checkBox' + _itemId;
+        _checkBox.setAttribute('type', 'checkbox');
+        _checkBox.setAttribute('id', 'checkBox' + _itemId);
         _listItem.appendChild(_checkBox);
 
         makeItemBodyText(_listItem, _checkBox);
-        _checkBox.onclick = function() {
+
+        _checkBox.addEventListener('click', function () {
             updateItemColor(_checkBox, _checkBox.nextSibling);
-        }
+        });
     }
 
     function makeItemBodyText(listItem, checkBox) {
         var _divText = document.createElement('div');
-        _divText.className = 'item-body-text';
-        _divText.id = 'item-body-text' + _itemId;
+        _divText.setAttribute('class', 'item-body-text unchecked');
+        _divText.setAttribute('id', 'item-body-text' + _itemId);
         listItem.appendChild(_divText);
 
         var _labelText = document.createElement('label');
-        _labelText.htmlFor = checkBox.id;
+        _labelText.setAttribute('htmlFor', checkBox.id);
         _labelText.innerHTML = toDoModule.item._html.itemTitle;
         _divText.appendChild(_labelText);
     }
 
     function updateItemColor(checkBox, item) {
         if (checkBox.checked) {
-            item.style.backgroundColor  = '#FF9B70';
-            console.log('Colored');
+            item.className = 'item-body-text checked';
         } else {
-            item.style.backgroundColor  = '#FFFFFF';
-            console.log('white');
+            item.className = 'item-body-text unchecked';
         }
     }
 

@@ -100,7 +100,15 @@ input[type = "button"]:hover {
     vertical-align: top;
     padding: .9% 0;
     margin: -1% 0 0 1%;
-    transition: all .4s ease-in-out;
+    transition: background-color .4s ease-in-out;
+}
+
+.checked {
+    background-color: #FF9B70;
+}
+
+.uncheked {
+    background-color: #FFFFFF;
 }
 
 input[type='checkbox'] {
